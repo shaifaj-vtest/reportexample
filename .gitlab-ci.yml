@@ -6,7 +6,6 @@ services:
 before_script:
   - bundle install
 
-#TODO: Configure the cucumber testsuite to use the selenium service on port 4444
 cucumber:
   script:
-    - cucumber -d                         # Do a dry run of cucumber tests
+    - cucumber 

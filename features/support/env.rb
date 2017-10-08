@@ -10,3 +10,10 @@ World(LapisLazuli)
 
 @language = "english"
 
+#TODO: get the remote url dynamically
+browser :remote, {
+  :url => "http://0.0.0.0:32768/wd/hub/"
+  :caps => {
+    "browser" => "Chrome"
+  }
+}

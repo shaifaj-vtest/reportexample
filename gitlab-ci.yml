@@ -1,0 +1,13 @@
+mage: "ruby:2.3"
+
+services:
+  - selenium/standalone-chrome:latest     #Use the standalone selenium server to run the test on
+
+before_script:
+  - gem install bundler --no-ri --no-rdoc
+  - bundle install
+
+#TODO: Configure the cucumber testsuite to use the selenium service on port 4444
+cucumber:
+    script:
+    - cucumber -d                         # Do a dry run of cucumber tests

@@ -14,7 +14,7 @@ World(LapisLazuli)
 
 LapisLazuli.Start do
   browser :remote, {
-    :url => "http://0.0.0.0:32768/wd/hub/",
+    :url => "http://selenium__standalone-chrome:4444/wd/hub/",
     :caps => {
       "browser" => "Chrome"
     }

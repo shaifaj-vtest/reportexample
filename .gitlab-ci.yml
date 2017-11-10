@@ -1,11 +1,18 @@
 image: "ruby:2.3"
 
 services:
-  - selenium/standalone-chrome:latest     #Use the standalone selenium server to run the test on
+  - selenium/standalone-chrome:latest
+
+variables:
+  selenium_remote_url: "http://selenium__standalone-chrome:4444/wd/hub/"
+
+cache:
+  paths:
+  - "./cache/ruby"
 
 before_script:
-  - bundle install
+- bundle install --path ./cache
 
 cucumber:
   script:
-    - cucumber 
+    - cucumber

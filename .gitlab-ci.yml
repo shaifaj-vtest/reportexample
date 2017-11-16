@@ -8,6 +8,8 @@ variables:
 
 before_script:
 - bundle install #Install the required gems
+- echo $CI_ENVIRONMENT_SLUG
+- echo $CI_ENVIRONMENT_NAME
 
 cucumber:
   script:

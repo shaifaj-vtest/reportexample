@@ -1,4 +1,7 @@
-image: "ruby:2.3"
+image: "spritecloud/ruby-selenium-runner"
+
+variables:
+  REVISION: sh git rev-list --count HEAD
 
 services:
   - selenium/standalone-chrome:latest
@@ -6,12 +9,9 @@ services:
 variables:
   selenium_remote_url: "http://selenium__standalone-chrome:4444/wd/hub/"
 
-cache:
-  paths:
-  - "./cache/ruby"
-
 before_script:
-- bundle install --path ./cache
+- bundle install
+- echo $REVISION
 
 cucumber:
   script:

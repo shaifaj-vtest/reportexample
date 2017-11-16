@@ -1,7 +1,7 @@
 image: "spritecloud/ruby-selenium-runner"
 
 variables:
-  REVISION: sh git rev-list --count HEAD
+  REVISION: $(git rev-list --count HEAD)
 
 services:
   - selenium/standalone-chrome:latest
@@ -12,6 +12,8 @@ variables:
 before_script:
 - bundle install
 - echo $REVISION
+- REVISION2 = $(git rev-list --count HEAD)
+- echo $REVISION2
 
 cucumber:
   script:

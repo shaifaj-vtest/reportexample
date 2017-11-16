@@ -8,9 +8,15 @@ variables:
 
 before_script:
 - bundle install #Install the required gems
-- echo $CI_ENVIRONMENT_SLUG
-- echo $CI_ENVIRONMENT_NAME
 
 cucumber:
   script:
     - bundle exec cucumber
+    - echo $CI_ENVIRONMENT_SLUG
+    - echo $CI_ENVIRONMENT_NAME
+  environment:
+    name: production
+    url: https://prod.example.com
+  
+  only:
+  - master

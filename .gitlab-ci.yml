@@ -7,8 +7,8 @@ variables:
   selenium_remote_url: "http://selenium__standalone-chrome:4444/wd/hub/"
 
 before_script:
-- bundle install
+- bundle install #Install the required gems
 
 cucumber:
   script:
-    - cucumber
+    - bundle exec cucumber

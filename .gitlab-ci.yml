@@ -1,4 +1,4 @@
-image: "spritecloud/ruby-selenium-runner"
+image: "spritecloud/ruby-selenium-runner:2.3"
 
 services:
   - selenium/standalone-chrome:latest
@@ -8,8 +8,6 @@ variables:
 
 before_script:
 - bundle install
-- export REVISION=$(git rev-list --count HEAD)
-- echo $REVISION
 
 cucumber:
   script:

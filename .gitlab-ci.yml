@@ -12,7 +12,7 @@ variables:
 before_script:
 - bundle install
 - echo $REVISION
-- REVISION2 = $(git rev-list --count HEAD)
+- export REVISION2 = $(git rev-list --count HEAD)
 - echo $REVISION2
 
 cucumber:

@@ -12,12 +12,10 @@ before_script:
 cucumber:
   script:
     - echo $CI_COMMIT_REF_NAME
-    - echo $CI_ENVIRONMENT_SLUG
-    - echo $CI_ENVIRONMENT_NAME
     - bundle exec cucumber
   environment:
     name: production
     url: https://prod.example.com
-  
   only:
   - master
+  - development

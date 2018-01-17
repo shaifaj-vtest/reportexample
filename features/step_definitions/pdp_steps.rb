@@ -32,5 +32,6 @@ Then(/^I can see details of the product$/) do
   )
   raise("Cannot find details section on page") unless item && item.visible?
 
-  browser.take_screenshot
+  screenshot = browser.driver.screenshot_as(:base64)
+  embed(screenshot, 'image/png;base64')
 end

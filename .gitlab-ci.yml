@@ -3,19 +3,16 @@ image: "spritecloud/ruby-selenium-runner:2.3"
 services:
   - selenium/standalone-chrome:latest
 
-variables:
-  selenium_remote_url: "http://selenium__standalone-chrome:4444/wd/hub/"
-
 before_script:
 - bundle install #Install the required gems
+- export SELENIUM_ENV=remote
 
-cucumber:
+app-demo-profile:
   script:
-    - echo $CI_COMMIT_REF_NAME
-    - bundle exec cucumber
-  environment:
-    name: production
-    url: https://prod.example.com
-  only:
-  - master
-  - development
+  - bundle exec cucumber PROFILE_ID=13 -p app_calliope_import
+  when: manual
+
+app-test-demo-profile:
+  script:
+  - bundle exec cucumber PROFILE_ID=1 -p app_test_calliope_import
+  when: manual

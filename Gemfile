@@ -29,3 +29,4 @@ gem 'selenium-webdriver'
 
 # LapisLazul itself
 gem 'lapis_lazuli'
+gem 'cucumber-calliope_importer'

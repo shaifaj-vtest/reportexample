@@ -4,19 +4,40 @@
 # Author: "barzilay" <barzilay@spritecloud.com>
 require 'lapis_lazuli'
 require 'lapis_lazuli/cucumber'
+require 'cucumber/calliope_importer'
 
 LapisLazuli::WorldModule::Config.config_file = "config/config.yml"
 World(LapisLazuli)
 
 @language = "english"
 
-#TODO: get the remote url dynamically
-
 LapisLazuli.Start do
-  browser :remote, {
-    :url => ENV['selenium_remote_url'],
-    :caps => {
-      "browser" => "Chrome"
+  if ENV['SELENIUM_ENV'] == 'remote'
+    browser :remote, {
+        :url => "http://selenium__standalone-chrome:4444/wd/hub/",
+        :caps => {
+            "browser" => "Chrome"
+        }
     }
-  }
+  else
+    # This code snippet prevents the security popup to appear in FF v>47.
+    # If BROWSER is NIL, Lapis Lazuli will default to Firefox
+    if !ENV['BROWSER'] || ENV['BROWSER'] == 'firefox'
+      # Get Selenium to create a profile object
+      require 'selenium-webdriver'
+      profile = Selenium::WebDriver::Firefox::Profile.new
+      profile['network.http.phishy-userpass-length'] = 255
+      browser :firefox, :profile => profile
+    end
+  end
+
+  ENV['TA_OS'] = RUBY_PLATFORM
+  ENV['TA_PLATFORM'] = "#{browser.driver.browser} #{browser.driver.capabilities.version}"
+end
+
+After do |scenario|
+  if scenario.failed?
+    screenshot = browser.driver.screenshot_as(:base64)
+    embed(screenshot, 'image/png;base64')
+  end
 end

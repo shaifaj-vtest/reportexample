@@ -10,7 +10,7 @@ Feature: Checkout
 		When I proceed to the check out
 		And I enter valid delivery details
 		And I select a payment method
-		And I I confirm the order
+		And I confirm the order
 		Then I am redirected to the thank you page
 
 	@check02

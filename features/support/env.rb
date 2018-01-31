@@ -33,6 +33,7 @@ LapisLazuli.Start do
 
   ENV['TA_OS'] = RUBY_PLATFORM
   ENV['TA_PLATFORM'] = "#{browser.driver.browser} #{browser.driver.capabilities.version}"
+  ENV['TA_BUILD'] = (`git rev-list --count HEAD`).gsub("\n", '')
 end
 
 After do |scenario|

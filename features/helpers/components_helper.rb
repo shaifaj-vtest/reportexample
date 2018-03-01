@@ -22,7 +22,7 @@ module PDPage
   class << self
 
     def productdetails
-      browser.wait(like: [:div, :class, 'itemAdttr'], timeout: 30, throw: false)
+      browser.wait(like: [:div, :class, 'itemAttr'], timeout: 30, throw: false)
     end
 
   end

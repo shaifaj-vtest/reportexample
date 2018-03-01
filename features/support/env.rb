@@ -9,12 +9,12 @@ require 'cucumber/calliope_importer'
 LapisLazuli::WorldModule::Config.config_file = "config/config.yml"
 World(LapisLazuli)
 
-@language = "english"
+$language = "english"
 
 LapisLazuli.Start do
-  if ENV['SELENIUM_ENV'] == 'remote'
+  if ENV['SELENIUM_URL']
     browser :remote, {
-        :url => "http://selenium__standalone-chrome:4444/wd/hub/",
+        :url => ENV['SELENIUM_URL'],
         :caps => {
             "browser" => "Chrome"
         }

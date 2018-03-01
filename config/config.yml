@@ -27,10 +27,10 @@ test:
 uat:
 
 production:
-    site:
-      english:
-        home: http://www.ebay.co.uk/
-        plp_page: http://www.ebay.co.uk/sch/Paintings-/20125/i.html
-      dutch:
-        home: http://www.ebay.nl/
-        plp_page: http://www.ebay.nl/sch/Motoren-/9804/i.html
+  pages:
+    english:
+      home: http://www.ebay.co.uk/
+      plp_page: http://www.ebay.co.uk/sch/Paintings-/20125/i.html
+    dutch:
+      home: http://www.ebay.nl/
+      plp_page: http://www.ebay.nl/sch/Motoren-/9804/i.html

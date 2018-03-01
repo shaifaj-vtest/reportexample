@@ -40,4 +40,4 @@ devices:
   galaxys2landscape:
     width: 800
     height: 480
-    user-agent: Mozilla/5.0 (Linux; Android 4.1.2; GT-I9100 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36
+    user-agent: Mozilla/5.0 (Linux; Android 4.1.2; GT-I910.0 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.109 Mobile Safari/537.36

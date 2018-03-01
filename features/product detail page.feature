@@ -5,7 +5,7 @@ Feature: Product detail page
 	So that I know if the product fits my needs
 
 	Background: Pre conditions
-		Given I navigate to the site in dutch
+		Given I navigate to page home in dutch
 
 	@pdp01
 	Scenario: pdp01 - Product detail page

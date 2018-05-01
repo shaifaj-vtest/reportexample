@@ -1,7 +1,7 @@
 image: "spritecloud/ruby-selenium-runner:2.4"
 
 services:
-  - selenium/standalone-chrome:3.11.0
+  - selenium/standalone-chrome:3.10.0
 
 before_script:
 - bundle install #Install the required gems

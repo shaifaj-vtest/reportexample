@@ -33,6 +33,12 @@ For convenience, a small part of the testsuite is already automated.
 
     $ bundle exec cucumber
 
+
+## Importing results to Calliope.pro
+
+The .gitlab-ci.yml file has some examples how to upload files to Calliope. There is a plain cURL command and a shell script that does the magic for you. 
+
+
 # Contributing
 
 If you create new utility functions and want to contribute them to the Lapis

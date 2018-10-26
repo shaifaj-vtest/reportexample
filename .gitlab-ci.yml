@@ -5,32 +5,27 @@ services:
 
 variables:
   SELENIUM_URL: "http://selenium__standalone-chrome:4444/wd/hub/"
+  API_KEY: ODU2OWI3Njk5MjhjNTEzMWQ4MDA0M2U4YzBkMTZkNjVlNmJlNTBjNTcxNDZlOTAyMTU3OTViMWQyNTBkODFjODEz
+  PROFILE_ID: 13
 
 before_script:
   - bundle install #Install the required gems
 
-curl-upload-example:
-  variables:
-    API_KEY: ODU2OWI3Njk5MjhjNTEzMWQ4MDA0M2U4YzBkMTZkNjVlNmJlNTBjNTcxNDZlOTAyMTU3OTViMWQyNTBkODFjODEz
-    PROFILE_ID: 13
+script-upload-example:
   script:
   - bundle exec cucumber -f json -o ./results/latest_results.json
   - sh upload_results_to_calliope.sh ./results/latest_results.json
   when: manual
 
-upload-script-example:
-  variables:
-    API_KEY: ODU2OWI3Njk5MjhjNTEzMWQ4MDA0M2U4YzBkMTZkNjVlNmJlNTBjNTcxNDZlOTAyMTU3OTViMWQyNTBkODFjODEz
-    PROFILE_ID: 13
+curl-upload-example:
   script:
     - bundle exec cucumber -f json -o ./results/latest_results.json
-    - sh upload_results_to_calliope.sh ./results/latest_results.json
+    - cURL -X POST -H "x-api-key:$API_URL" -H "Content-Type:application/*" --data "@results/latest_results.json" $API_URL/api/v2/profile/$PROFILE_ID/testreport?os=myos&platform=myplatform&build=mybuild
   when: manual
 
-upload-script-example-test-env:
+curl-upload-example-custom:
   variables:
     API_KEY: ODU2OWI3Njk5MjhjNTEzMWQ4MDA0M2U4YzBkMTZkNjVlNmJlNTBjNTcxNDZlOTAyMTU3OTViMWQyNTBkODFjODEz
-    PROFILE_ID: 13
     API_URL: "https://test.calliope.pro"
   script:
     - bundle exec cucumber -f json -o ./results/latest_results.json

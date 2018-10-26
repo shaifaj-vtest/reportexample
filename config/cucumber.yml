@@ -29,13 +29,3 @@ test: TEST_ENV=test -t @t,@test
 
 p: TEST_ENV=production -t @p,@prod
 production: TEST_ENV=production -t @p,@prod
-
-################################################################################
-# app.calliope.pro settings
-app_calliope_key: API_KEY=ODU2OWI3Njk5MjhjNTEzMWQ4MDA0M2U4YzBkMTZkNjVlNmJlNTBjNTcxNDZlOTAyMTU3OTViMWQyNTBkODFjODEz
-app_calliope_import: -p app_calliope_key API_URL=https://app.calliope.pro -c -f pretty -f calliope_import --out ./results/latest_results.json
-
-################################################################################
-# app-test.calliope.pro settings
-app_test_calliope_key: API_KEY=ODU2OWI3Njk5MjhjNTEzMWQ4MDA0M2U4YzBkMTZkNjVlNmJlNTBjNTcxNDZlOTAyMTU3OTViMWQyNTBkODFjODEz
-app_test_calliope_import: -p app_test_calliope_key API_URL=https://test.calliope.pro -c -f pretty -f calliope_import --out ./results/latest_results.json

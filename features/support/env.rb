@@ -4,7 +4,6 @@
 # Author: "barzilay" <barzilay@spritecloud.com>
 require 'lapis_lazuli'
 require 'lapis_lazuli/cucumber'
-require 'cucumber/calliope_importer'
 
 LapisLazuli::WorldModule::Config.config_file = "config/config.yml"
 World(LapisLazuli)

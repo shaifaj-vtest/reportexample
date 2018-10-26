@@ -4,7 +4,7 @@ services:
   - selenium/standalone-chrome:3.8.1
 
 variables:
-  - SELENIUM_URL: "http://selenium__standalone-chrome:4444/wd/hub/"
+  SELENIUM_URL: "http://selenium__standalone-chrome:4444/wd/hub/"
 
 before_script:
   - bundle install #Install the required gems

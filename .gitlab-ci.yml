@@ -34,5 +34,5 @@ upload-script-example-test-env:
     API_URL: "https://test.calliope.pro"
   script:
     - bundle exec cucumber -f json --o ./results/latest_results.json
-    - cURL-X POST -H "x-api-key: $API_URL" -H "Content-Type: application/*" --data "@results/latest_results.json" "$API_URL/api/v2/profile/$PROFILE_ID/testreport?os=myos&platform=myplatform&build=mybuild"
+    - cURL -X POST -H "x-api-key:$API_URL" -H "Content-Type:application/*" --data "@results/latest_results.json" $API_URL/api/v2/profile/$PROFILE_ID/testreport?os=myos&platform=myplatform&build=mybuild
   when: manual

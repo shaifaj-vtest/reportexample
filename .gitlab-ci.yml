@@ -25,7 +25,6 @@ curl-upload-example:
 
 curl-upload-example-custom:
   variables:
-    API_KEY: ODU2OWI3Njk5MjhjNTEzMWQ4MDA0M2U4YzBkMTZkNjVlNmJlNTBjNTcxNDZlOTAyMTU3OTViMWQyNTBkODFjODEz
     API_URL: "https://test.calliope.pro"
   script:
     - bundle exec cucumber -f json -o ./results/latest_results.json

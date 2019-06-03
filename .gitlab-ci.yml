@@ -10,7 +10,6 @@ variables:
 
 before_script:
   - bundle install #Install the required gems
-  - apt-get update; apt-get install curl
 
 script-upload-example:
   script:

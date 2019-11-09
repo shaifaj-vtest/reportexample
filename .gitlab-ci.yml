@@ -6,7 +6,7 @@ services:
 variables:
   SELENIUM_URL: "http://selenium__standalone-chrome:4444/wd/hub/"
   API_KEY: ODU2OWI3Njk5MjhjNTEzMWQ4MDA0M2U4YzBkMTZkNjVlNmJlNTBjNTcxNDZlOTAyMTU3OTViMWQyNTBkODFjODEz
-  PROFILE_ID: 13
+  PROFILE_ID: 735
 
 before_script:
   - bundle install #Install the required gems

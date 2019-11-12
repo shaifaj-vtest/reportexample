@@ -20,7 +20,7 @@ script-upload-example:
 curl-upload-example:
   script:
     - bundle exec cucumber -f json -o ./results/latest_results.json && true
-    - curl -X POST -H "x-api-key:$API_KEY" -H "Content-Type:application/*" --data "@results/latest_results.json" "https://app.calliope.pro/api/v2/profile/$PROFILE_ID/testreport?os=myos&platform=myplatform&build=mybuild"
+    - curl -X POST -H "x-api-key:$API_KEY" -H "Content-Type:application/*" --data "@results/latest_results.json" "https://app.calliope.pro/api/v2/profile/$PROFILE_ID/import?os=myos&platform=myplatform&build=mybuild"
   when: manual
 
 curl-upload-example-custom:
@@ -28,5 +28,5 @@ curl-upload-example-custom:
     API_URL: "https://test.calliope.pro"
   script:
     - bundle exec cucumber -f json -o ./results/latest_results.json && true
-    - curl -X POST -H "x-api-key:$API_KEY" -H "Content-Type:application/*" --data "@results/latest_results.json" "$API_URL/api/v2/profile/$PROFILE_ID/testreport?os=myos&platform=myplatform&build=mybuild"
+    - curl -X POST -H "x-api-key:$API_KEY" -H "Content-Type:application/*" --data "@results/latest_results.json" "$API_URL/api/v2/profile/$PROFILE_ID/import?os=myos&platform=myplatform&build=mybuild"
   when: manual

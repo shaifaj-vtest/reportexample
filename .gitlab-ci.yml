@@ -1,4 +1,4 @@
-image: "spritecloud/ruby-selenium-runner:2.4"
+image: "spritecloud/ruby-selenium-runner:2.6"
 
 services:
   - selenium/standalone-chrome:3.8.1
@@ -20,13 +20,11 @@ script-upload-example:
 curl-upload-example:
   script:
     - bundle exec cucumber -f json -o ./results/latest_results.json && true
-    - curl -X POST -H "x-api-key:$API_KEY" -H "Content-Type:application/*" --data "@results/latest_results.json" "https://app.calliope.pro/api/v2/profile/$PROFILE_ID/import?os=myos&platform=myplatform&build=mybuild"
+    - curl -X POST -H "x-api-key:$API_KEY" -H "Content-Type:application/*" --data "@results/latest_results.json" "https://app.calliope.pro/api/v2/profile/$PROFILE_ID/report/import?os=myos&platform=myplatform&build=mybuild"
   when: manual
 
-curl-upload-example-custom:
-  variables:
-    API_URL: "https://test.calliope.pro"
+curl-upload-example-test-env:
   script:
     - bundle exec cucumber -f json -o ./results/latest_results.json && true
-    - curl -X POST -H "x-api-key:$API_KEY" -H "Content-Type:application/*" --data "@results/latest_results.json" "$API_URL/api/v2/profile/$PROFILE_ID/import?os=myos&platform=myplatform&build=mybuild"
+    - curl -X POST -H "x-api-key:$API_KEY" -H "Content-Type:application/*" --data "@results/latest_results.json" "https://test.calliope.pro/api/v2/profile/$PROFILE_ID/report/import?os=myos&platform=myplatform&build=mybuild"
   when: manual

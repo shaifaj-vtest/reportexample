@@ -44,7 +44,7 @@ then
 	echo "   TA_BUILD:${TA_BUILD}"
     echo "   TA_PLATFORM:${TA_PLATFORM}"
 
-	curl -X POST -H "x-api-key: ${API_KEY}" -H "Content-Type: application/*" --data "@${report}" "${API_URL}/api/v2/profile/${PROFILE_ID}/testreport?os=${TA_OS}&platform=${TA_PLATFORM}&build=${TA_BUILD}"
+	curl -X POST -H "x-api-key: ${API_KEY}" -H "Content-Type: application/*" --data "@${report}" "${API_URL}/api/v2/profile/${PROFILE_ID}/report/import?os=${TA_OS}&platform=${TA_PLATFORM}&build=${TA_BUILD}"
 else
 	echo "No results found."
 fi

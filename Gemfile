@@ -5,4 +5,4 @@ source 'http://rubygems.org'
 # > bundle exec cucumber
 
 # LapisLazul itself
-gem 'lapis_lazuli', "2.1.4"
+gem 'lapis_lazuli', "2.2.0"

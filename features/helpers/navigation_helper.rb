@@ -4,6 +4,9 @@
 ##################################
 # General navigation helpers
 ##################################
+
+require 'lapis_lazuli'
+
 module Nav
   extend LapisLazuli
   class << self

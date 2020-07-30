@@ -4,6 +4,9 @@
 ##################################
 # product list page items
 ##################################
+
+require 'lapis_lazuli'
+
 module PLPage
   extend LapisLazuli
   class << self

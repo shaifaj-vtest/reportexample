@@ -28,7 +28,7 @@ curl-upload-example-test-env:
     - >
       curl -X POST
       -H "x-api-key:$API_KEY"
-      -H "Content-Type:application/*"
+      -H "Content-Type:multipart/form-data"
       -F "file[]=@results/latest_results.json"
       "https://test.calliope.pro/api/v2/profile/$PROFILE_ID/report/import?os=myos&platform=myplatform&build=mybuild"
   when: manual

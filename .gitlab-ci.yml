@@ -10,6 +10,7 @@ variables:
 
 before_script:
   - bundle install #Install the required gems
+  - export SELENIUM_ENV=remote
 
 curl-upload-example:
   script:
@@ -19,7 +20,7 @@ curl-upload-example:
       -H "x-api-key:$API_KEY"
       -H "Content-Type:multipart/form-data"
       -F "file[]=@results/latest_results.json"
-      "https://app.calliope.pro/api/v2/profile/$PROFILE_ID/report/import?os=myos&platform=myplatform&build=mybuild"
+      "https://app.calliope.pro/api/v2/profile/$PROFILE_ID/import?os=YOUR_OS&platform=YOUR_PLATFORM&build=YOUR_BUILD"
   when: manual
 
 curl-upload-example-test-env:
@@ -30,5 +31,5 @@ curl-upload-example-test-env:
       -H "x-api-key:$API_KEY"
       -H "Content-Type:multipart/form-data"
       -F "file[]=@results/latest_results.json"
-      "https://test.calliope.pro/api/v2/profile/$PROFILE_ID/report/import?os=myos&platform=myplatform&build=mybuild"
+      "https://test.calliope.pro/api/v2/profile/$PROFILE_ID/import?os=YOUR_OS&platform=YOUR_PLATFORM&build=YOUR_BUILD"
   when: manual
